@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>列表渲染</title>
+    <script type="text/javascript" src="vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <template v-if="show">
+        <!-- <h1 v-if="awesome">Vue is awesome!</h1>
+        <h1 v-else>Oh no 😢</h1> -->
+        <h1>vue is awesome</h1>
+        <h1>vue is good</h1>
+        <div v-show="show">{{message}}</div>
+        
+       </template>
+       <template v-if="show">
+           <label>username </label>
+           <input type="text" placeholder="输入username" key="username"/>
+       </template>
+       <template v-else="show">
+            <label>email </label>
+            <input type="text" placeholder="输入email" key="email"/>
+       </template>
+    </div>
+    <script>
+        var vm =new Vue({
+            el:"#root",
+            data:{
+                message:"my name giserpan",
+                awesome:true,
+                show:true
+            }
+        })
+    </script>
+</body>
+</html>
