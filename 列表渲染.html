@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>列表渲染</title>
+    <script type="text/javascript" src="./vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <ul>
+            <li v-for="(item,index) of list" v-bind:key="item.id" >{{item.value}}--{{index}}</li>
+        </ul>
+        <ul>
+            <li v-for="(item,key,index) of userInfo" >{{key}}:{{item}}--{{index}}{</li>
+        </ul>
+        <ul>
+            <template v-for="item of list">
+                <li>{{item.value}}</li>
+                <li class="divider" role="presentation">test</li>
+            </template>
+        </ul>
+        <div v-for="item of list" v-if="item.id==1">{{item.value}}</div>
+    </div>
+    <script>
+        var vm =new Vue({
+            el:"#root",
+            data:{
+                list:[{
+                    id:1,
+                    value:"a"
+                },{
+                    id:2,
+                    value:"b"
+                },{
+                    id:3,
+                    value:"c"
+                }],
+                userInfo:{
+                    name:"giserpan",
+                    age:30,
+                    github:"mrpan"
+                    
+                }
+            }
+        })
+    </script>
+</body>
+</html>
